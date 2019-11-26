@@ -154,6 +154,16 @@ open class Player: UIViewController {
         set { _ = newValue.map { setupAsset($0) } }
     }
 
+    /// Specifies how the video asset is composed.
+    open var videoComposition: AVVideoComposition? {
+        get {
+            return _playerItem?.videoComposition
+        }
+        set {
+            _playerItem?.videoComposition = newValue
+        }
+    }
+    
     /// Specifies how the video is displayed within a player layer’s bounds.
     /// The default value is `AVLayerVideoGravityResizeAspect`. See `PlayerFillMode`.
     open var fillMode: PlayerFillMode {
