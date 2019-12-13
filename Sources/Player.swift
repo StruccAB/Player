@@ -335,7 +335,7 @@ open class Player: UIViewController {
             }
         }
     }
-    internal var _avplayer: AVPlayer = AVPlayer()
+    public var _avplayer: AVPlayer = AVPlayer()
     internal var _playerItem: AVPlayerItem?
 
     internal var _playerObservers = [NSKeyValueObservation]()
