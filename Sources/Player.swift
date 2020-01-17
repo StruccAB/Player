@@ -164,6 +164,16 @@ open class Player: UIViewController {
         }
     }
     
+    /// Specifies how the audio is composed.
+    open var audioMix: AVAudioMix? {
+        get {
+            return _playerItem?.audioMix
+        }
+        set {
+            _playerItem?.audioMix = newValue
+        }
+    }
+    
     /// Specifies how the video is displayed within a player layer’s bounds.
     /// The default value is `AVLayerVideoGravityResizeAspect`. See `PlayerFillMode`.
     open var fillMode: PlayerFillMode {
