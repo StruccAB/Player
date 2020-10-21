@@ -398,6 +398,7 @@ open class Player: UIViewController {
         super.loadView()
         self._playerView.frame = self.view.bounds
         self.view = self._playerView
+        self._playerView.player = self._avplayer
     }
 
     open override func viewDidLoad() {
@@ -732,7 +733,7 @@ extension Player {
 
             switch object.status {
             case .readyToPlay:
-                self?._playerView.player = self?._avplayer
+                self?._playerView.isHidden = false
             case .failed:
                 self?.playbackState = PlaybackState.failed
             default:
@@ -761,7 +762,7 @@ extension Player {
             case .readyToPlay:
                 fallthrough
             @unknown default:
-                strongSelf._playerView.player = self?._avplayer
+                strongSelf._playerView.isHidden = false
                 break
             }
         })
@@ -900,7 +901,6 @@ public class PlayerView: UIView {
         }
         set {
             self.playerLayer.player = newValue
-            self.playerLayer.isHidden = (self.playerLayer.player == nil)
         }
     }
 
